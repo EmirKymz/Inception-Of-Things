@@ -1,0 +1,36 @@
+# Vagrantfile for P1 Project (K3s + Debian Bullseye + Vagrant)
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "debian/bullseye64"
+  
+    # SERVER
+    config.vm.define "EkaymazS" do |server|
+      server.vm.hostname = "EkaymazS"
+      server.vm.network "private_network", ip: "192.168.56.110"
+  
+      server.vm.provider "virtualbox" do |vb|
+        vb.name = "EkaymazS"
+        vb.memory = 1024
+        vb.cpus = 1
+      end
+  
+      server.vm.synced_folder "./shared", "/vagrant/shared"
+      server.vm.provision "shell", path: "./scripts/install_server.sh"
+    end
+  
+    # WORKER
+    config.vm.define "EkaymazSW" do |worker|
+      worker.vm.hostname = "EkaymazSW"
+      worker.vm.network "private_network", ip: "192.168.56.111"
+  
+      worker.vm.provider "virtualbox" do |vb|
+        vb.name = "EkaymazSW"
+        vb.memory = 1024
+        vb.cpus = 1
+      end
+  
+      worker.vm.synced_folder "./shared", "/vagrant/shared"
+      worker.vm.provision "shell", path: "./scripts/install_worker.sh"
+    end
+  end
+  
