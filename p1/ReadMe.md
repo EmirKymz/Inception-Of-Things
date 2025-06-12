@@ -3,7 +3,7 @@
 ## 📚 Proje Hakkında
 
 Bu proje, **Vagrant** kullanarak Debian tabanlı iki sanal makine üzerinde **K3s** kurulumu yapmayı hedefler.  
-K3s, hafif bir Kubernetes dağıtımıdır. Bu çalışma sayesinde Kubernetes temelleri küçük bir ortamda öğlenilir.
+K3s, hafif bir Kubernetes dağıtımıdır. Bu çalışma sayesinde Kubernetes temelleri küçük bir ortamda öğrenilir.
 
 ---
 
